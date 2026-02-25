@@ -32,7 +32,7 @@ public class PersistentArrayMap extends APersistentMap implements IObj, IEditabl
 private static final long serialVersionUID = -2074065891090893601L;
 
 final Object[] array;
-static final int HASHTABLE_THRESHOLD = 16;
+static final int HASHTABLE_THRESHOLD = 0;
 
 public static final PersistentArrayMap EMPTY = new PersistentArrayMap();
 private final IPersistentMap _meta;

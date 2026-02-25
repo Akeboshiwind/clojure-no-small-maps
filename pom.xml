@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.clojure</groupId>
-  <artifactId>clojure</artifactId>
-  <name>clojure</name>
+  <groupId>com.github.akeboshiwind</groupId>
+  <artifactId>clojure-no-small-maps</artifactId>
+  <name>clojure-no-small-maps</name>
   <packaging>jar</packaging>
   <version>1.12.4</version>
 
-  <url>http://clojure.org/</url>
-  <description>Clojure core environment and runtime library.</description>
+  <url>https://github.com/akeboshiwind/clojure-no-small-maps</url>
+  <description>Fork of Clojure with the PersistentArrayMap (small maps) optimization disabled.</description>
 
   <developers>
     <developer>
@@ -27,9 +27,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:git@github.com:clojure/clojure.git</connection>
-    <developerConnection>scm:git:git@github.com:clojure/clojure.git</developerConnection>
-    <url>git@github.com:clojure/clojure.git</url>
+    <connection>scm:git:git@github.com:akeboshiwind/clojure-no-small-maps.git</connection>
+    <developerConnection>scm:git:git@github.com:akeboshiwind/clojure-no-small-maps.git</developerConnection>
+    <url>git@github.com:akeboshiwind/clojure-no-small-maps.git</url>
     <tag>clojure-1.12.4</tag>
   </scm>
 

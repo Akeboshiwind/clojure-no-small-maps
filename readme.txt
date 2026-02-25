@@ -1,3 +1,48 @@
+ *   clojure-no-small-maps
+ *   A fork of Clojure with the PersistentArrayMap (small maps) optimization
+ *   disabled. HASHTABLE_THRESHOLD in PersistentArrayMap.java is set to 0
+ *   (upstream default is 16), forcing all maps to use PersistentHashMap.
+ *
+ *   Why? In standard Clojure, small maps (<= 8 keys) preserve insertion order
+ *   because they are backed by a flat array. Larger maps use a hash trie and
+ *   do not. Code that accidentally relies on insertion order works fine until
+ *   the map grows past 8 keys, at which point it breaks in surprising ways.
+ *   This fork removes that foot-gun by using PersistentHashMap from the start,
+ *   so order-dependent bugs surface immediately rather than hiding until later.
+ *
+ *   Usage (deps.edn):
+ *     {:deps {com.github.akeboshiwind/clojure-no-small-maps {:mvn/version "RELEASE"}}
+ *      :mvn/repos {"jitpack" {:url "https://jitpack.io"}}}
+ *
+ *   Usage (project.clj):
+ *     :repositories [["jitpack" "https://jitpack.io"]]
+ *     :dependencies [[com.github.akeboshiwind/clojure-no-small-maps "RELEASE"]]
+ *
+ *   Replace "RELEASE" with a specific tag or commit SHA for reproducible builds.
+ *
+ *   Based on: Clojure 1.12.4
+ *   Source: https://github.com/akeboshiwind/clojure-no-small-maps
+ *
+ *   Updating to a new upstream Clojure release:
+ *
+ *     # Save the fork patch (top commit)
+ *     git format-patch -1 HEAD -o /tmp
+ *
+ *     # Reset master to the new upstream tag
+ *     git fetch upstream
+ *     git reset --hard clojure-X.Y.Z
+ *
+ *     # Apply the patch
+ *     git am /tmp/0001-*.patch
+ *
+ *     # Update versions in pom.xml and this file to X.Y.Z
+ *     # Then amend the commit and tag
+ *     git add -A && git commit --amend --no-edit
+ *     git tag vX.Y.Z
+ *     git push --force origin master --tags
+ *
+ * ---------------------------------------------------------------------------
+ *
  *   Clojure
  *   Copyright (c) Rich Hickey. All rights reserved.
  *   The use and distribution terms for this software are covered by the
